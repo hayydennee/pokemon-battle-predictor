@@ -83,6 +83,9 @@ def save_to_csv(data, filename='data/raw/pokemon_stats.csv'):
 
     print(f"Data successfully saved to {filename}")
 
-
+# Main execution block to fetch Pokemon data and save it to a CSV file
+print("Fetching Pokemon data...")
+pokemon_data = fetch_all_pokemon()
+save_to_csv(pokemon_data)
 
 
