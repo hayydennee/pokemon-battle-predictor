@@ -207,4 +207,4 @@ marimo/_lsp/
 __marimo__/
 
 # csv files
-data/raw/pokemon_stats.csv
+data/raw/
