@@ -6,7 +6,7 @@ import pandas as pd
 
 # Function to build the type chart by fetching data for all types from the PokeAPI
 def build_type_chart():
-    url = 'https://pokeapi.co/api/v2/type?limit=21'
+    url = 'https://pokeapi.co/api/v2/type?limit=18'
     try:
         # Added a 5-second timeout to handle potential network issues
         response = requests.get(url, timeout=5)
