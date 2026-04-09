@@ -4,6 +4,9 @@ import requests, time
 # Imported pandas for potential future use in data manipulation, and csv for writing to CSV files
 import pandas as pd
 
+# Import the save_to_csv function from the utils module
+from src.utils import save_to_csv
+
 # Function to fetch Pokemon stats from the PokeAPI
 def get_pokemon_stats(name):
     url = f'https://pokeapi.co/api/v2/pokemon/{name.lower()}'
@@ -65,27 +68,11 @@ def fetch_all_pokemon():
         time.sleep(0.5)  
     
     return all_pokemon_stats
-    
-def save_to_csv(data, filename='data/raw/pokemon_stats.csv'):
-    # Safety check to ensure data is not empty before attempting to write to CSV
-    if not data:
-        print("No data to save. CSV file will not be created.")
-        return
-    
-    # Convert the list of dictionaries to a DataFrame for easier CSV writing
-    df = pd.DataFrame(data)
-
-    # Save that DataFrame to a CSV file, including error handling for potential file I/O issues
-    try:
-        df.to_csv(filename, index=False)
-    except IOError as e:
-        print(f"File I/O error while saving to {filename}: {e}")
-
-    print(f"Data successfully saved to {filename}")
 
 # Main execution block to fetch Pokemon data and save it to a CSV file
-print("Fetching Pokemon data...")
-pokemon_data = fetch_all_pokemon()
-save_to_csv(pokemon_data)
+if __name__ == "__main__":
+    print("Fetching Pokemon data...")
+    pokemon_data = fetch_all_pokemon()
+    save_to_csv(pokemon_data, 'data/raw/pokemon_stats.csv')
 
 
