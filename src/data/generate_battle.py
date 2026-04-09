@@ -49,5 +49,6 @@ for attacking, defending in all_pairs:
     })
 
 # Save battles to CSV
-print("Saving battles to CSV...")
-save_to_csv(battles, 'data/battles/battles.csv')
+if __name__ == "__main__":
+    print("Saving battles to CSV...")
+    save_to_csv(battles, 'data/battles/battles.csv')
