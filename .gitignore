@@ -208,3 +208,7 @@ __marimo__/
 
 # csv files
 data/
+
+# model files
+src/models/*.json
+src/models/*.bin
